@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matthew Avolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #dbdbcb;
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+            background-size: 10px 10px;
+            z-index: -1;
+        }
+        header {
+            background-color: #647b64;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            color: white;
+        }
+        h2 {
+            font-family: 'Georgia', serif;
+            color: #647b64;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 5px 0;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            float: left;
+            margin-right: 20px;
+        }
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Matthew Avolio</h1>
+    <p>MMath | Computer Science | University of Waterloo</p>
+</header>
+
+<div class="container">
+    <section id="about" class="clearfix">
+        <h2>About Me</h2>
+        <!-- Add your profile image here -->
+        <img src="profile.jpg" alt="Matthew Avolio" class="profile-img">
+        <p>
+            I am a Master's of Math student in computer science at the University of Waterloo, under the supervision of Prof. 
+            <a href="https://ssteinberg.xyz" target="_blank">Shlomi Steinberg</a>. 
+            I am interested in Computer Graphics with a focus on physically based rendering.
+        </p>
+        <p>
+            I previously earned a Bachelor of Applied Science from the University of Waterloo, where I completed internships in 
+            various fields, including computer vision and genomics.
+        </p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <ul>
+            <li>MMath in Computer Science, University of Waterloo, 2024 - present</li>
+            <li>BASc. in Computer Engineering, University of Waterloo, 2019 - 2024</li>
+        </ul>
+    </section>
+
+    <!-- <section id="research">
+        <h2>Research Interests</h2>
+        <ul>
+            <li>[Research Topic 1]</li>
+            <li>[Research Topic 2]</li>
+            <li>[Research Topic 3]</li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>Selected Publications</h2>
+        <ul>
+            <li>[Publication 1], [Journal Name], [Year]</li>
+            <li>[Publication 2], [Journal Name], [Year]</li>
+            <li>[Publication 3], [Journal Name], [Year]</li>
+        </ul>
+    </section> -->
+
+    <section id="contact">
+        <h2>Contact Information</h2>
+        Email: <a href="mailto:mavolio@uwaterloo.ca">mavolio@uwaterloo.ca</a>
+    </section>
+</div>
+
+</body>
+</html>
