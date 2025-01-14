@@ -1,0 +1,3 @@
+[submodule "sketches"]
+	path = sketches
+	url = git@github.com:m-avolio/sketches.git
