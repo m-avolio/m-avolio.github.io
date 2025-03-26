@@ -1,3 +1,6 @@
 [submodule "sketches"]
 	path = sketches
 	url = git@github.com:m-avolio/sketches.git
+[submodule "googly_eyes"]
+	path = googly_eyes
+	url = https://github.com/m-avolio/googly_eyes.git
