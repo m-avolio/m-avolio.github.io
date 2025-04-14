@@ -4,3 +4,6 @@
 [submodule "googly_eyes"]
 	path = googly_eyes
 	url = https://github.com/m-avolio/googly_eyes.git
+[submodule "googly_eye"]
+	path = googly_eye
+	url = https://github.com/m-avolio/googly_eye.git
