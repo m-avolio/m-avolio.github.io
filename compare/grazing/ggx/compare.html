@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Fullscreen Photo ↔ Render Comparisons</title>
+<style>
+  :root { --pos: 50; --handle-w: 3px; }
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: #000;
+    color: #eee;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    scroll-snap-type: y mandatory;   /* page-by-page scroll */
+    overscroll-behavior-y: contain;
+  }
+  .cmp {
+    position: relative;
+    width: 100vw;
+    height: 100svh;                  /* visible viewport height */
+    scroll-snap-align: start;
+    user-select: none;
+    touch-action: none;
+    background: #000;
+  }
+
+  /* Base and overlay layers share the exact same frame */
+  .layer, .overlay { position: absolute; inset: 0; display: block; }
+  /* ✅ Fixed: use *1% instead of appending % to var() */
+  .overlay { clip-path: inset(0 calc(100% - (var(--pos,50) * 1%)) 0 0); }
+
+  .frame {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: #000; /* letterbox */
+  }
+  .frame > img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto; height: auto;
+    object-fit: contain;
+    -webkit-user-drag: none; user-drag: none;
+  }
+
+  .handle {
+    position: absolute; top: 0; bottom: 0;
+    left: calc(var(--pos,50) * 1%);
+    transform: translateX(-50%);
+    width: var(--handle-w);
+    background: #fff9;
+    box-shadow: 0 0 0 1px #0008 inset;
+    pointer-events: none;
+  }
+  .dot {
+    position: absolute; top: 50%;
+    left: calc(var(--pos,50) * 1%);
+    transform: translate(-50%, -50%);
+    width: 16px; height: 16px; border-radius: 50%;
+    background: #fff; box-shadow: 0 0 0 2px #0008;
+    pointer-events: none;
+  }
+
+  .cap {
+    position: absolute; left: 12px; bottom: 10px;
+    font-size: 12px; color: #ddd;
+    background: #0008; padding: 4px 6px; border-radius: 4px;
+  }
+</style>
+</head>
+<body>
+
+  <!-- 0 -->
+  <section class="cmp" data-pos="50" data-cap="0">
+    <div class="layer frame"><img src="../../photos/photo_grazing_0.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_0_alpha_0.114.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- 1 -->
+  <section class="cmp" data-pos="50" data-cap="1">
+    <div class="layer frame"><img src="../../photos/photo_grazing_1.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_1_alpha_0.066.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- 2 -->
+  <section class="cmp" data-pos="50" data-cap="2">
+    <div class="layer frame"><img src="../../photos/photo_grazing_2.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_2_alpha_0.021.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="cmp" data-pos="50" data-cap="3">
+    <div class="layer frame"><img src="../../photos/photo_grazing_3.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_3_alpha_0.012.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- 4 -->
+  <section class="cmp" data-pos="50" data-cap="4">
+    <div class="layer frame"><img src="../../photos/photo_grazing_4.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_4_alpha_0.009.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- 5 -->
+  <section class="cmp" data-pos="50" data-cap="5">
+    <div class="layer frame"><img src="../../photos/photo_grazing_5.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_5_alpha_0.013.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- 6 -->
+  <section class="cmp" data-pos="50" data-cap="6">
+    <div class="layer frame"><img src="../../photos/photo_grazing_6.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_6_alpha_0.011.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- 7 -->
+  <section class="cmp" data-pos="50" data-cap="7">
+    <div class="layer frame"><img src="../../photos/photo_grazing_7.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="../../renders/ggx/render_grazing_7_alpha_0.001.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section>
+
+  <!-- colours -->
+  <!-- <section class="cmp" data-pos="50" data-cap="cc">
+    <div class="layer frame"><img src="../../photos/photo_grazing_cc.jpg" alt=""></div>
+    <div class="overlay"><div class="frame"><img src="renders/colour_checker.jpg" alt=""></div></div>
+    <div class="handle"></div><div class="dot"></div><div class="cap"></div>
+  </section> -->
+
+<script>
+(() => {
+  const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+
+  function setPos(el, pct) {
+    pct = clamp(pct, 0, 100);
+    el.style.setProperty('--pos', pct);
+    el.dataset.pos = pct;
+  }
+
+  function pctFromEvent(el, e) {
+    const r = el.getBoundingClientRect();
+    const x = e.clientX;
+    return clamp(((x - r.left) / r.width) * 100, 0, 100);
+  }
+
+  function attach(el) {
+    // init
+    const start = parseFloat(el.dataset.pos || '50');
+    setPos(el, isNaN(start) ? 50 : start);
+    const cap = el.querySelector('.cap');
+    if (cap && el.dataset.cap) cap.textContent = el.dataset.cap;
+
+    let dragging = false;
+
+    el.addEventListener('pointerdown', (e) => {
+      dragging = true;
+      el.setPointerCapture?.(e.pointerId);
+      setPos(el, pctFromEvent(el, e));
+      e.preventDefault();
+    });
+
+    el.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      setPos(el, pctFromEvent(el, e));
+    });
+
+    const end = (e) => {
+      dragging = false;
+      el.releasePointerCapture?.(e.pointerId);
+    };
+    el.addEventListener('pointerup', end);
+    el.addEventListener('pointercancel', end);
+
+    // Click to jump
+    el.addEventListener('click', (e) => setPos(el, pctFromEvent(el, e)));
+
+    // Keep value sane on resize (no recompute needed)
+    addEventListener('resize', () => setPos(el, parseFloat(el.dataset.pos || '50')));
+  }
+
+  document.querySelectorAll('.cmp').forEach(attach);
+})();
+</script>
+</body>
+</html>
